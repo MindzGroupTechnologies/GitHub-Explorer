@@ -11,7 +11,7 @@
             if (code) {
                 kinveyService.getAuthCode(code)
                     .then(function(response) {
-                        $window.opener.postMessage(response.data, 'http://github.localhost.com/');
+                        $window.opener.postMessage(response.data, $location.protocol() + '://' + $location.host());
                         $window.close();
                     });
             }

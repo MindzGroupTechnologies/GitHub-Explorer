@@ -220,7 +220,7 @@
             if (code) {
                 kinveyService.getAuthCode(code)
                     .then(function(response) {
-                        $window.opener.postMessage(response.data, 'http://github.localhost.com/');
+                        $window.opener.postMessage(response.data, $location.protocol() + '://' + $location.host());
                         $window.close();
                     });
             }
@@ -357,7 +357,6 @@
         .controller('HomeController', ['$scope', '$window', 'gitService', '$localStorage', function ($scope, $window, gitService, $localStorage) {
             console.log("Home Controller");
             var messageListner = function (event) {
-                console.log(event);
                 if(event.data.access_token) {
                     debugger;
                     $localStorage.access_token = event.data.access_token;
