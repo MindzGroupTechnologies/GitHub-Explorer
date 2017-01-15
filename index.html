@@ -1,8 +1,59 @@
-<html>
-    <head>
-        <title>GitHub Explorer</title>
-    </head>
-    <body>
-        <h1>GitHub Explorer</h1>
-    </body>
+<!DOCTYPE html>
+<html ng-app="main" ng-cloak>
+
+<head>
+    <title>GitHub Explorer</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/libs.min.js"></script>
+    <script src="js/app.compiled.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,500,700|Fira+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese">
+    <link rel="stylesheet" href="css/app.compiled.min.css" />
+    <base href="/GitHub-Explorer/">
+</head>
+
+<body ng-controller="HomeController">
+    <nav class="navbar navbar-primary navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">GitHub Explorer</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ui-sref-active="active">
+                        <a ui-sref="search">Search</a>
+                    </li>
+                </ul>
+                <ul ng-if="!gitUserName" class="nav navbar-nav navbar-right">
+                    <li>
+                        <a ng-click="auth()">Login with GitHub</a>
+                    </li>
+                </ul>
+                <ul ng-if="gitUserName" class="nav navbar-nav navbar-right">
+                    <li ui-sref-active="active">
+                        <a ui-sref="user({login: user.login})"><span class="text-heavy">{{gitUserName}}</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" ui-view></div>
+    <nav class="navbar navbar-primary navbar-fixed-bottom" role="navigation">
+        <div class="container-fluid">
+        <ul ng-if="gitUserName" class="nav navbar-nav navbar-right">
+            <li>
+                <a href="/">An open source project by <span class="text-heavy">MindzGroup Technologies</span></a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+</body>
+
 </html>

@@ -1,0 +1,20 @@
+<div class="row block block-warning bottom-cushion">
+    <div class="col-md-12 col-sm-12 block-header">
+        <h5>Contributors</h5>
+    </div>
+    <div class="col-md-12 col-sm-12">
+        <div class="row">
+            <div ng-repeat="contributor in contributors" class="col-md-12 col-sm-12">
+                <img class="img-thumbnail img-avatar block-primary pull-left" ng-src="{{::contributor.avatar_url}}&s=40" alt="{{::contributor.login}}">
+                <span class="pull-left">
+                    <span class="text-heavy">{{::contributor.login}}</span><br/>{{::contributor.type}}
+                    <span class="item-actions">
+                        [<a class="text-success" ui-sref="user.repos({login: contributor.login})">Repositories</a>]
+                        [<a class="text-success" ui-sref="user.gists({login: contributor.login})">Gists</a>]
+                        <span ng-if="contributor.type==='User'">[<a class="text-success" ui-sref="user.orgs({login: contributor.login})">Organisations</a>]</span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

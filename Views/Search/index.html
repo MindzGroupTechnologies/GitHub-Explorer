@@ -1,0 +1,57 @@
+<div class="module-container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="row block block-light top-cushion bottom-cushion">
+                <div class="col-md-12 col-sm-12">
+                    <form class="form-inline" role="form">
+                        <div class="form-group text-left">
+                            <label for="txtLoginName">GitHub Login ID: </label>
+                            <div class="input-group">
+                                <input id="txtLoginName" autocomplete="off" class="form-control" type="text" ng-model="searchValue">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary" ng-click="search(currentPage)"><span class="glyphicon glyphicon-search"></span>&nbsp;</button>
+                                </div>
+                            </div>
+                        </div><br/><br/>
+                        <div class="form-group text-left">
+                            <label for="cbTypeUser" class="radioCtrl rounded">
+                                <input id="cbTypeUser" name="cbType" type="radio" value="user" ng-model="typeValue" />
+                                <span class="toggle"></span>
+                            </label>
+                            <label for="cbTypeUser" class="title">User</label>
+                            <label for="cbTypeOrg" class="radioCtrl rounded">
+                                <input id="cbTypeOrg" name="cbType" type="radio" value="org" ng-model="typeValue" />
+                                <span class="toggle"></span>
+                            </label>
+                            <label for="cbTypeOrg" class="title">Organization</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12">
+            <div class="row block block-light bottom-cushion">
+                <div class="col-md-12 col-sm-12 block-header">
+                    <h5 class="pull-left">Results</h5>
+                    <div class="pull-right block-actions" ng-if="searchResults">
+                        <ul uib-pagination ng-change="pageChanged(currentPage)" total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" items-per-page="pageSize" boundary-link-numbers="true" rotate="true"></ul>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12" ng-repeat="record in searchResults">
+                    <img class="img-thumbnail img-avatar block-primary pull-left" ng-src="{{::record.avatar_url}}&s=40" alt="{{::record.login}}">
+                    <span class="pull-left">
+                        <span class="text-heavy">{{::record.login}}</span><br/>{{::record.type}}
+                    <span class="item-actions">
+                            [<a class="text-success" ui-sref="user.repos({login: record.login})">Repositories</a>]
+                            [<a class="text-success" ui-sref="user.gists({login: record.login})">Gists</a>]
+                            <span ng-if="record.type==='User'">[<a class="text-success" ui-sref="user.orgs({login: record.login})">Organisations</a>]</span>
+                    </span>
+                    </span>
+                </div>
+                <div class="col-md-12 col-sm-12" ng-if="!searchResults">
+                    Enter a User Login ID to Search
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

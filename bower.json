@@ -1,0 +1,29 @@
+{
+  "name": "github-explorer",
+  "description": "An explorer for the github users and orgs",
+  "main": "index.html",
+  "authors": [
+    "Anant Anand Gupta <anantanandgupta@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "github",
+    "explorer"
+  ],
+  "homepage": "http://github.mindzgroup.com/GitHub-Explorer",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.8",
+    "bootstrap": "3.3.7",
+    "angular-ui-router": "ui-router#0.3.2",
+    "ngstorage": "^0.3.11",
+    "octicons": "^5.0.1"
+  }
+}

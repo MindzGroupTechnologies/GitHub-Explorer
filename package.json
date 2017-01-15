@@ -1,0 +1,32 @@
+{
+  "name": "github-explorer",
+  "version": "0.0.1",
+  "description": "An explorer for the github users and orgs",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MindzGroupTechnologies/GitHub-Explorer.git"
+  },
+  "keywords": [
+    "github",
+    "explorer"
+  ],
+  "author": "Anant Anand Gupta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MindzGroupTechnologies/GitHub-Explorer/issues"
+  },
+  "homepage": "https://github.com/MindzGroupTechnologies/GitHub-Explorer#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0"
+  }
+}

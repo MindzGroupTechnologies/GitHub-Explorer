@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <div class="row block block-warning bottom-cushion">
+            <div class="col-md-12 col-sm-12 block-header">
+                <h5>Repositories</h5>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <div class="row">
+                    <div ng-repeat="repo in repositories" class="col-md-12 col-sm-12">
+                        {{repo.name}}
+                        <div>
+                            [<a ui-sref=".branches({repo: repo.name})">Branches</a>]
+                            [<a ui-sref=".contributors({repo: repo.name})">Contributors</a>]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12" ui-view="repo.detail"></div>
+</div>
