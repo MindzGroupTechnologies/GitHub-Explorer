@@ -66,9 +66,10 @@
                             console.log('loading template : ' + url);
                             return url;
                         },
-                        controller: ['$scope', 'branches', function($scope, branches) {
+                        controller: ['$scope', 'branches', '$stateParams', function($scope, branches, $stateParams) {
                             console.log('Branches Controller');
                             $scope.branches = branches.data;
+                            $scope.repositoryName = $stateParams.repo;
                         }]
                     }
                 }
@@ -86,9 +87,10 @@
                             console.log('loading template : ' + url);
                             return url;
                         },
-                        controller: ['$scope', 'contributors', function($scope, contributors) {
+                        controller: ['$scope', 'contributors', '$stateParams', function($scope, contributors, $stateParams) {
                             console.log('Contributors Controller');
                             $scope.contributors = contributors.data;
+                            $scope.repositoryName = $stateParams.repo;
                         }]
                     }
                 }
