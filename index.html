@@ -40,6 +40,9 @@
                     <li ui-sref-active="active">
                         <a ui-sref="user({login: user.login})"><span class="text-heavy">{{gitUserName}}</span></a>
                     </li>
+                    <li>
+                        <a ng-click="logoutUser()"><span class="text-heavy">Logout</span></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -47,7 +50,7 @@
     <div class="container-fluid" ui-view></div>
     <nav class="navbar navbar-primary navbar-fixed-bottom" role="navigation">
         <div class="container-fluid">
-        <ul ng-if="gitUserName" class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
             <li>
                 <a href="/">An open source project by <span class="text-heavy">MindzGroup Technologies</span></a>
             </li>

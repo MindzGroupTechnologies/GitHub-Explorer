@@ -220,8 +220,8 @@
             if (code) {
                 kinveyService.getAuthCode(code)
                     .then(function(response) {
-                        $window.opener.postMessage(response.data, $location.protocol() + '://' + $location.host());
-                        $window.close();
+                        $window.opener.postMessage(response.data, $window.opener.location.protocol + '://' + $window.opener.location.hostname);
+                        // $window.close();
                     });
             }
         }]);
@@ -354,10 +354,10 @@
     'use strict';
 
     angular.module('main')
-        .controller('HomeController', ['$scope', '$window', 'gitService', '$localStorage', function ($scope, $window, gitService, $localStorage) {
+        .controller('HomeController', ['$scope', '$window', 'gitService', '$localStorage', '$state', function ($scope, $window, gitService, $localStorage, $state) {
             console.log("Home Controller");
             var messageListner = function (event) {
-                if(event.data.access_token) {
+                if (event.data.access_token) {
                     debugger;
                     $localStorage.access_token = event.data.access_token;
                     $localStorage.scope = event.data.scope;
@@ -365,14 +365,24 @@
                     userLoggedIn();
                 }
             };
-            var userLoggedIn = function() {
+
+            var userLoggedIn = function () {
                 gitService.getAuthenticatedUser()
-                    .then(function(response) {
+                    .then(function (response) {
                         $scope.gitUserName = response.data.name;
                         $scope.user = response.data;
-                        $localStorage.user = response.data;
                     });
             }
+
+            var logoutUser = function () {
+                delete $localStorage.access_token;
+                delete $localStorage.scope;
+                delete $localStorage.token_type;
+                delete $scope.user;
+                delete $scope.gitUserName;
+                $state.go('search');
+            }
+
             var auth = function () {
                 $window.open('https://github.com/login/oauth/authorize?client_id=492314afd654eaa0a8ed&scope=user%20repo');
                 $window.removeEventListener("message", messageListner);
@@ -380,7 +390,8 @@
             };
 
             $scope.auth = auth;
-            userLoggedIn();
+            $scope.logoutUser = logoutUser;
+            $localStorage.access_token && userLoggedIn();
             //$scope.gitUserName = "Anant Anand Gupta"
         }]);
 }());
