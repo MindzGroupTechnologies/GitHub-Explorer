@@ -39,6 +39,9 @@ module.exports = function (grunt) {
         concat: {
             dist_main: {
                 src: [
+                    // utility module
+                    'js/utility.module.js',
+                    'js/utility.page.provider.js',
                     // github module
                     'js/github.module.js',
                     'js/github.gitBase.provider.js',

@@ -1,12 +1,20 @@
 (function () {
     'use strict';
 
-    angular.module('main', ['ui.router', 'ui.bootstrap', 'ngStorage', 'github', 'angulartics.google.analytics'])
-        .config(['$stateProvider', '$analyticsProvider', function ($stateProvider, $analyticsProvider) {
+    angular.module('main', ['ui.router', 'ui.bootstrap', 'ngStorage', 'github', 'angulartics.google.analytics', 'utility'])
+        .config(['$stateProvider', '$analyticsProvider', 'pageProvider', function ($stateProvider, $analyticsProvider, pageProvider) {
             $analyticsProvider.withAutoBase(true);
+
+            pageProvider.setSiteTitle('GitHub Explorer');
 
             $stateProvider.state('search', {
                 url: '/Search',
+                resolve : {
+                    pageTitle: ['page', function(page) {
+                        page.setPageTitle('Search');
+                        return page.getTitle();
+                    }]
+                },
                 views: {
                     '@': {
                         templateUrl: function () {
@@ -22,6 +30,10 @@
                 resolve: {
                     userInfo: ['gitService', '$stateParams', function (gitService, $stateParams) {
                         return gitService.getUser($stateParams.login);
+                    }],
+                    pageTitle: ['page', function(page) {
+                        page.setPageTitle('User');
+                        return page.getTitle();
                     }]
                 },
                 views: {
@@ -39,6 +51,10 @@
                 resolve: {
                     repositories: ['gitService', '$stateParams', function (gitService, $stateParams) {
                         return gitService.getUserRepositories($stateParams.login);
+                    }],
+                    pageTitle: ['page', function(page) {
+                        page.setPageTitle('User Repositories');
+                        return page.getTitle();
                     }]
                 },
                 views: {
@@ -59,6 +75,10 @@
                 resolve: {
                     branches: ['gitService', '$stateParams', function (gitService, $stateParams) {
                         return gitService.getUserRepositoryBranches($stateParams.login, $stateParams.repo);
+                    }],
+                    pageTitle: ['page', function(page) {
+                        page.setPageTitle('Repository Branches');
+                        return page.getTitle();
                     }]
                 },
                 views: {
@@ -80,6 +100,10 @@
                 resolve: {
                     contributors: ['gitService', '$stateParams', function (gitService, $stateParams) {
                         return gitService.getUserRepositoryContributors($stateParams.login, $stateParams.repo);
+                    }],
+                    pageTitle: ['page', function(page) {
+                        page.setPageTitle('Repository Contributors');
+                        return page.getTitle();
                     }]
                 },
                 views: {
@@ -98,6 +122,12 @@
                 }
             }).state('user.orgs', {
                 url: '/Organisations',
+                resolve: {
+                    pageTitle: ['page', function(page) {
+                        page.setPageTitle('User Organisations');
+                        return page.getTitle();
+                    }]
+                },
                 views: {
                     'section@user': {
                         templateUrl: function () {
@@ -109,6 +139,12 @@
                 }
             }).state('user.gists', {
                 url: '/Gists',
+                resolve: {
+                    pageTitle: ['page', function(page) {
+                        page.setPageTitle('User Gists');
+                        return page.getTitle();
+                    }]
+                },
                 views: {
                     'section@user': {
                         templateUrl: function () {

@@ -2,8 +2,9 @@
     'use strict';
 
     angular.module('main')
-        .controller('HomeController', ['$scope', '$window', 'gitService', '$localStorage', '$state', function ($scope, $window, gitService, $localStorage, $state) {
+        .controller('HomeController', ['$scope', '$window', 'gitService', '$localStorage', '$state', 'page', function ($scope, $window, gitService, $localStorage, $state, page) {
             console.log("Home Controller");
+
             var messageListner = function (event) {
                 if (event.data.access_token) {
                     debugger;
@@ -40,6 +41,7 @@
             $scope.auth = auth;
             $scope.logoutUser = logoutUser;
             $localStorage.access_token && userLoggedIn();
+            $scope.page = page;
             //$scope.gitUserName = "Anant Anand Gupta"
         }]);
 }());

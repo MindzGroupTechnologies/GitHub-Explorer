@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html ng-app="main" ng-cloak>
+<html ng-app="main" ng-cloak ng-controller="HomeController">
 
 <head>
-    <title>GitHub Explorer</title>
+    <title>{{page.getTitle()}}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +36,7 @@
     </script>
 </head>
 
-<body ng-controller="HomeController">
+<body>
     <nav class="navbar navbar-primary navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
