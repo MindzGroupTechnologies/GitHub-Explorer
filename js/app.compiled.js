@@ -220,8 +220,8 @@
             if (code) {
                 kinveyService.getAuthCode(code)
                     .then(function(response) {
-                        $window.opener.postMessage(response.data, $window.opener.location.protocol + '://' + $window.opener.location.hostname);
-                        // $window.close();
+                        $window.opener.postMessage(response.data, $location.protocol() + '://' + $location.host());
+                        $window.close();
                     });
             }
         }]);
