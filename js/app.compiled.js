@@ -230,8 +230,10 @@
 (function () {
     'use strict';
 
-    angular.module('main', ['ui.router', 'ui.bootstrap', 'ngStorage', 'github', 'angulartics', 'angulartics.google.analytics'])
-        .config(['$stateProvider', function ($stateProvider) {
+    angular.module('main', ['ui.router', 'ui.bootstrap', 'ngStorage', 'github', 'angulartics.google.analytics'])
+        .config(['$stateProvider', '$analyticsProvider', function ($stateProvider, $analyticsProvider) {
+            $analyticsProvider.withAutoBase(true);
+
             $stateProvider.state('search', {
                 url: '/Search',
                 views: {
@@ -275,7 +277,7 @@
                             console.log('loading template : ' + url);
                             return url;
                         },
-                        controller: ['$scope', 'repositories', function($scope, repositories) {
+                        controller: ['$scope', 'repositories', function ($scope, repositories) {
                             console.log('Repositories Controller');
                             $scope.repositories = repositories.data;
                         }]
@@ -295,7 +297,7 @@
                             console.log('loading template : ' + url);
                             return url;
                         },
-                        controller: ['$scope', 'branches', '$stateParams', function($scope, branches, $stateParams) {
+                        controller: ['$scope', 'branches', '$stateParams', function ($scope, branches, $stateParams) {
                             console.log('Branches Controller');
                             $scope.branches = branches.data;
                             $scope.repositoryName = $stateParams.repo;
@@ -316,7 +318,7 @@
                             console.log('loading template : ' + url);
                             return url;
                         },
-                        controller: ['$scope', 'contributors', '$stateParams', function($scope, contributors, $stateParams) {
+                        controller: ['$scope', 'contributors', '$stateParams', function ($scope, contributors, $stateParams) {
                             console.log('Contributors Controller');
                             $scope.contributors = contributors.data;
                             $scope.repositoryName = $stateParams.repo;
