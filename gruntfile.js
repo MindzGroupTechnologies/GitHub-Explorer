@@ -61,7 +61,9 @@ module.exports = function (grunt) {
                     'bower_components/angular-ui-router/release/angular-ui-router.min.js',
                     'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
                     'bower_components/ngStorage/ngStorage.min.js',
-                    'bower_components/bootstrap/dist/js/bootstrap.min.js'
+                    'bower_components/bootstrap/dist/js/bootstrap.min.js',
+                    'bower_components/angulartics/dist/angulartics.min.js',
+                    'bower_components/angulartics-google-analytics/dist/angulartics-ga.min.js'
                 ],
                 dest: 'js/libs.min.js',
             },

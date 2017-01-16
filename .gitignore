@@ -1,2 +1,12 @@
 node_modules/
-bower_components/
+/bower_components/*
+
+# add angulartics dist
+##!/bower_components/angulartics
+##/bower_components/angulartics/*
+##!/bower_components/angulartics/dist
+
+# add angulartics-google-analytics dist
+##!/bower_components/angulartics-google-analytics
+##/bower_components/angulartics-google-analytics/*
+##!/bower_components/angulartics-google-analytics/dist

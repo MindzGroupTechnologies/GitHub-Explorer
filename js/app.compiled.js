@@ -230,7 +230,7 @@
 (function () {
     'use strict';
 
-    angular.module('main', ['ui.router', 'ui.bootstrap', 'ngStorage', 'github'])
+    angular.module('main', ['ui.router', 'ui.bootstrap', 'ngStorage', 'github', 'angulartics', 'angulartics.google.analytics'])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider.state('search', {
                 url: '/Search',
