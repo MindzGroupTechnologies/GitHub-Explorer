@@ -43,8 +43,8 @@
                         <span class="text-heavy">{{::record.login}}</span><br/>{{::record.type}}
                     <span class="item-actions">
                             [<a class="text-success" ui-sref="user.repos({login: record.login})">Repositories</a>]
-                            [<a class="text-success" ui-sref="user.gists({login: record.login})">Gists</a>]
-                            <span ng-if="record.type==='User'">[<a class="text-success" ui-sref="user.orgs({login: record.login})">Organisations</a>]</span>
+                            <span ng-if="record.type==='User'">[<a class="text-success" ui-sref="user.gists({login: record.login})">Gists</a>]
+                            [<a class="text-success" ui-sref="user.orgs({login: record.login})">Organisations</a>]</span>
                     </span>
                     </span>
                 </div>

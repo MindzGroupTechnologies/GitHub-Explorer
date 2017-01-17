@@ -10,9 +10,9 @@
                         {{::userInfo.type}}<span ng-if="::userInfo.location"> ({{::userInfo.location}})</span>
                         <br />
                         <a class="text-info text-heavy" ui-sref=".repos">Repositories</a> (Public: {{::userInfo.public_repos}}<span ng-if="userInfo.owned_private_repos">, Private: {{::userInfo.owned_private_repos}}</span>)
-                        <br />
-                        <a class="text-info text-heavy" ui-sref=".gists">Gists</a> (Public: {{::userInfo.public_gists}}<span ng-if="userInfo.private_gists">, Private: {{::userInfo.private_gists}}</span>)
                         <span ng-if="::userInfo.type==='User'">
+                            <br />
+                            <a class="text-info text-heavy" ui-sref=".gists">Gists</a> (Public: {{::userInfo.public_gists}}<span ng-if="userInfo.private_gists">, Private: {{::userInfo.private_gists}}</span>)
                             <br />
                             <a class="text-info text-heavy" ui-sref=".orgs">Organisations</a>
                         </span>
