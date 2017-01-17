@@ -1,4 +1,4 @@
-@import "bower_components/bootstrap/less/variables.less";
+@import "../bower_components/bootstrap/less/variables.less";
 @navbar-primary-color: #fff;
 @navbar-primary-bg: @brand-primary;
 @navbar-primary-border: darken(@navbar-primary-bg, 6.5%); // Navbar links
@@ -220,8 +220,33 @@ body {
         padding-bottom: @panel-body-padding;
     }
 
+    .block-section {
+        .block-section-header {
+            display: block;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            margin: @padding-small-vertical 0;
+            padding: @padding-small-vertical 0;
+            font-weight: 400;
+        }
+
+        &:first-child {
+            .block-section-header {
+                padding-top: 0;
+                margin-top: 0;
+            }
+        }
+    }
+
     &.block-success {
         border: 1px solid @brand-success;
+
+        .block-section {
+            .block-section-header {
+                border-bottom-color: @brand-success;
+                color: @brand-success;
+            }
+        }
 
         .block-header {
             border-color: @brand-success;
@@ -233,6 +258,13 @@ body {
     &.block-primary {
         border: 1px solid @brand-primary;
 
+        .block-section {
+            .block-section-header {
+                border-bottom-color: @brand-primary;
+                color: @brand-primary;
+            }
+        }
+
         .block-header {
             border-color: @brand-primary;
             background-color: @brand-primary;
@@ -242,6 +274,13 @@ body {
 
     &.block-info {
         border: 1px solid @brand-info;
+
+        .block-section {
+            .block-section-header {
+                border-bottom-color: @brand-info;
+                color: @brand-info;
+            }
+        }
 
         .block-header {
             border-color: @brand-info;
@@ -253,6 +292,13 @@ body {
     &.block-warning {
         border: 1px solid @brand-warning;
 
+        .block-section {
+            .block-section-header {
+                border-bottom-color: @brand-warning;
+                color: @brand-warning;
+            }
+        }
+
         .block-header {
             border-color: @brand-warning;
             background-color: @brand-warning;
@@ -263,6 +309,13 @@ body {
     &.block-danger {
         border: 1px solid @brand-danger;
 
+        .block-section {
+            .block-section-header {
+                border-bottom-color: @brand-danger;
+                color: @brand-danger;
+            }
+        }
+
         .block-header {
             border-color: @brand-danger;
             background-color: @brand-danger;
@@ -272,6 +325,13 @@ body {
 
     &.block-light {
         border: 1px solid @gray-lighter;
+
+        .block-section {
+            .block-section-header {
+                border-bottom-color: @gray-lighter;
+                color: @gray-dark;
+            }
+        }
 
         .block-header {
             border-color: @gray-lighter;

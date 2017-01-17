@@ -140,8 +140,24 @@ fieldset[disabled] .navbar-primary .btn-link:hover {
 .block.bottom-cushion {
   padding-bottom: 15px;
 }
+.block .block-section .block-section-header {
+  display: block;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  margin: 5px 0;
+  padding: 5px 0;
+  font-weight: 400;
+}
+.block .block-section:first-child .block-section-header {
+  padding-top: 0;
+  margin-top: 0;
+}
 .block.block-success {
   border: 1px solid #5cb85c;
+}
+.block.block-success .block-section .block-section-header {
+  border-bottom-color: #5cb85c;
+  color: #5cb85c;
 }
 .block.block-success .block-header {
   border-color: #5cb85c;
@@ -151,6 +167,10 @@ fieldset[disabled] .navbar-primary .btn-link:hover {
 .block.block-primary {
   border: 1px solid #337ab7;
 }
+.block.block-primary .block-section .block-section-header {
+  border-bottom-color: #337ab7;
+  color: #337ab7;
+}
 .block.block-primary .block-header {
   border-color: #337ab7;
   background-color: #337ab7;
@@ -158,6 +178,10 @@ fieldset[disabled] .navbar-primary .btn-link:hover {
 }
 .block.block-info {
   border: 1px solid #5bc0de;
+}
+.block.block-info .block-section .block-section-header {
+  border-bottom-color: #5bc0de;
+  color: #5bc0de;
 }
 .block.block-info .block-header {
   border-color: #5bc0de;
@@ -167,6 +191,10 @@ fieldset[disabled] .navbar-primary .btn-link:hover {
 .block.block-warning {
   border: 1px solid #f0ad4e;
 }
+.block.block-warning .block-section .block-section-header {
+  border-bottom-color: #f0ad4e;
+  color: #f0ad4e;
+}
 .block.block-warning .block-header {
   border-color: #f0ad4e;
   background-color: #f0ad4e;
@@ -175,6 +203,10 @@ fieldset[disabled] .navbar-primary .btn-link:hover {
 .block.block-danger {
   border: 1px solid #d9534f;
 }
+.block.block-danger .block-section .block-section-header {
+  border-bottom-color: #d9534f;
+  color: #d9534f;
+}
 .block.block-danger .block-header {
   border-color: #d9534f;
   background-color: #d9534f;
@@ -182,6 +214,10 @@ fieldset[disabled] .navbar-primary .btn-link:hover {
 }
 .block.block-light {
   border: 1px solid #eeeeee;
+}
+.block.block-light .block-section .block-section-header {
+  border-bottom-color: #eeeeee;
+  color: #333333;
 }
 .block.block-light .block-header {
   border-color: #eeeeee;

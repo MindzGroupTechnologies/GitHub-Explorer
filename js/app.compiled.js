@@ -45,6 +45,19 @@
 (function () {
     'use strict';
 
+    angular.module('utility')
+        .filter('dashNothing', [function () {
+            return function (input, alternateText) {
+                alternateText = alternateText || '--';
+                if (input) return input;
+                return alternateText;
+            };
+        }]);
+})();
+
+(function () {
+    'use strict';
+
     angular.module('github', ['ui.router', 'ngStorage'])
         .config(['$locationProvider', '$stateProvider', function ($locationProvider, $stateProvider) {
             // enable restful urls in the browser address bar
@@ -179,6 +192,17 @@
                     return $http(request);
                 }
 
+                service.getUserGists = function (login) {
+                    // build request
+                    var request = gitBase.build({
+                        url: '/users/' + login + '/gists',
+                        method: 'GET'
+                    }, $localStorage.access_token);
+
+                    // execute the request
+                    return $http(request);
+                }
+
                 return service;
             }];
         });
@@ -282,9 +306,10 @@
 
             $stateProvider.state('search', {
                 url: '/Search',
-                resolve : {
-                    pageTitle: ['page', function(page) {
+                resolve: {
+                    pageTitle: ['page', function (page) {
                         page.setPageTitle('Search');
+                        console.log(page.getTitle());
                         return page.getTitle();
                     }]
                 },
@@ -304,7 +329,7 @@
                     userInfo: ['gitService', '$stateParams', function (gitService, $stateParams) {
                         return gitService.getUser($stateParams.login);
                     }],
-                    pageTitle: ['page', function(page) {
+                    pageTitle: ['page', function (page) {
                         page.setPageTitle('User');
                         return page.getTitle();
                     }]
@@ -325,7 +350,7 @@
                     repositories: ['gitService', '$stateParams', function (gitService, $stateParams) {
                         return gitService.getUserRepositories($stateParams.login);
                     }],
-                    pageTitle: ['page', function(page) {
+                    pageTitle: ['page', function (page) {
                         page.setPageTitle('User Repositories');
                         return page.getTitle();
                     }]
@@ -349,7 +374,7 @@
                     branches: ['gitService', '$stateParams', function (gitService, $stateParams) {
                         return gitService.getUserRepositoryBranches($stateParams.login, $stateParams.repo);
                     }],
-                    pageTitle: ['page', function(page) {
+                    pageTitle: ['page', function (page) {
                         page.setPageTitle('Repository Branches');
                         return page.getTitle();
                     }]
@@ -374,7 +399,7 @@
                     contributors: ['gitService', '$stateParams', function (gitService, $stateParams) {
                         return gitService.getUserRepositoryContributors($stateParams.login, $stateParams.repo);
                     }],
-                    pageTitle: ['page', function(page) {
+                    pageTitle: ['page', function (page) {
                         page.setPageTitle('Repository Contributors');
                         return page.getTitle();
                     }]
@@ -396,7 +421,7 @@
             }).state('user.orgs', {
                 url: '/Organisations',
                 resolve: {
-                    pageTitle: ['page', function(page) {
+                    pageTitle: ['page', function (page) {
                         page.setPageTitle('User Organisations');
                         return page.getTitle();
                     }]
@@ -413,7 +438,10 @@
             }).state('user.gists', {
                 url: '/Gists',
                 resolve: {
-                    pageTitle: ['page', function(page) {
+                    gists: ['gitService', '$stateParams', function (gitService, $stateParams) {
+                        return gitService.getUserGists($stateParams.login);
+                    }],
+                    pageTitle: ['page', function (page) {
                         page.setPageTitle('User Gists');
                         return page.getTitle();
                     }]
@@ -424,7 +452,48 @@
                             var url = 'Views/User/Gists/';
                             console.log('loading template : ' + url);
                             return url;
-                        }
+                        },
+                        controller: ['$scope', 'gists', function ($scope, gists) {
+                            console.log('Gists Controller');
+
+                            var getGistInfo = function (gist) {
+                                var fileKeys = Object.keys(gist.files);
+                                var gistInfo = {};
+
+                                gistInfo.name = fileKeys[0];
+                                gistInfo.fileCount = fileKeys.length;
+
+                                return gistInfo;
+                            };
+
+                            $scope.gists = gists.data;
+                            $scope.getGistInfo = getGistInfo;
+                        }]
+                    }
+                }
+            }).state('user.gists.files', {
+                url: '/:id/Files',
+                params: {
+                    gist: null
+                },
+                resolve: {
+                    pageTitle: ['page', function (page) {
+                        page.setPageTitle('Gists Files');
+                        return page.getTitle();
+                    }]
+                },
+                views: {
+                    'gist.detail@user.gists': {
+                        templateUrl: function () {
+                            var url = 'Views/User/Gists/Detail/Info/';
+                            console.log('loading template : ' + url);
+                            return url;
+                        },
+                        controller: ['$scope', '$stateParams', function ($scope, $stateParams) {
+                            console.log('Files Controller');
+
+                            $scope.gist = $stateParams.gist;
+                        }]
                     }
                 }
             })

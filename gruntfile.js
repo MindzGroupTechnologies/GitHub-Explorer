@@ -42,6 +42,7 @@ module.exports = function (grunt) {
                     // utility module
                     'js/utility.module.js',
                     'js/utility.page.provider.js',
+                    'js/utility.dashNothing.filter.js',
                     // github module
                     'js/github.module.js',
                     'js/github.gitBase.provider.js',

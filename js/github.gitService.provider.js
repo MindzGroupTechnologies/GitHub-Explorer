@@ -81,6 +81,17 @@
                     return $http(request);
                 }
 
+                service.getUserGists = function (login) {
+                    // build request
+                    var request = gitBase.build({
+                        url: '/users/' + login + '/gists',
+                        method: 'GET'
+                    }, $localStorage.access_token);
+
+                    // execute the request
+                    return $http(request);
+                }
+
                 return service;
             }];
         });
