@@ -6,10 +6,16 @@
             </div>
             <div class="col-md-12 col-sm-12">
                 <div class="row">
-                    <div ng-repeat="gist in gists" class="col-md-12 col-sm-12" ng-init="gistInfo=getGistInfo(gist)">
-                        {{gistInfo.name}} (Files: {{gistInfo.fileCount}})
-                        <div>
-                            [<a ui-sref=".files({id: gist.id, gist: gist})">Details</a>]
+                    <div ng-repeat="gist in gists" class="col-md-12 col-sm-12 list-row" ng-init="gistInfo=getGistInfo(gist)">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 has-btn">
+                                {{gistInfo.name}} <label class="label label-primary">{{gistInfo.fileCount}}</label>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="pull-right">
+                                    <a class="btn btn-sm btn-info" ui-sref=".files({id: gist.id, gist: gist})">Information</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

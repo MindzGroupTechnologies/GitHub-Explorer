@@ -527,3 +527,32 @@ body {
 [ng-click] {
     cursor: pointer;
 }
+
+&.list-row {
+    margin: 5px 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .has-btn {
+        line-height: 30px;
+    }
+
+    .has-icon {
+        line-height: 40px;
+
+        .btn {
+            margin: 8px 0;
+        }
+    }
+
+    .label {
+        padding: 0.2em 0.5em;
+        vertical-align: middle;
+    }
+}

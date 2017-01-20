@@ -135,7 +135,21 @@
                             var url = 'Views/User/Organisations/';
                             console.log('loading template : ' + url);
                             return url;
-                        }
+                        },
+                        controller: ['$scope', 'gitService', '$stateParams', function ($scope, gitService, $stateParams) {
+                            console.log('Organisations Controller');
+                            this.getOrgs = function() {
+                                if($stateParams.login === $scope.user.login) {
+                                    return gitService.getMyOrganisations();
+                                } else {
+                                    return gitService.getUserOrganisations($stateParams.login);
+                                }
+                            };
+
+                            this.getOrgs().then(function(response) {
+                                $scope.organisations = response.data;
+                            });
+                        }]
                     }
                 }
             }).state('user.gists', {

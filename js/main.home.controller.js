@@ -33,7 +33,7 @@
             }
 
             var auth = function () {
-                $window.open('https://github.com/login/oauth/authorize?client_id=492314afd654eaa0a8ed&scope=user%20repo');
+                $window.open('https://github.com/login/oauth/authorize?client_id=492314afd654eaa0a8ed&scope=user%20repo%20read:org');
                 $window.removeEventListener("message", messageListner);
                 $window.addEventListener("message", messageListner, false);
             };

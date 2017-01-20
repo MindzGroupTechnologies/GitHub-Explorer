@@ -92,6 +92,28 @@
                     return $http(request);
                 }
 
+                service.getUserOrganisations = function (login) {
+                    // build request
+                    var request = gitBase.build({
+                        url: '/users/' + login + '/orgs',
+                        method: 'GET'
+                    }, $localStorage.access_token);
+
+                    // execute the request
+                    return $http(request);
+                }
+
+                service.getMyOrganisations = function () {
+                    // build request
+                    var request = gitBase.build({
+                        url: '/user/orgs',
+                        method: 'GET'
+                    }, $localStorage.access_token);
+
+                    // execute the request
+                    return $http(request);
+                }
+
                 return service;
             }];
         });

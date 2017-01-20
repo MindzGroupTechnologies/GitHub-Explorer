@@ -1,5 +1,31 @@
-<div class="row block block-light top-cushion bottom-cushion">
+<div class="row">
     <div class="col-md-12 col-sm-12">
-        Organisations
+        <div class="row block block-warning bottom-cushion">
+            <div class="col-md-12 col-sm-12 block-header">
+                <h5>Organisations</h5>
+            </div>
+            <div class="col-md-12 col-sm-12" ng-if="organisations && organisations.length > 0">
+                <div class="row">
+                    <div ng-repeat="org in organisations" class="col-md-12 col-sm-12 list-row">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 has-icon">
+                                <img class="img-thumbnail img-avatar block-primary pull-left" ng-src="{{::org.avatar_url}}&s=40" alt="{{::org.login}}">
+                                <span class="pull-left">
+                                    <span class="text-heavy">{{::org.login}}</span>
+                                </span>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="pull-right has-icon">
+                                    <a class="btn btn-info" ui-sref="user.repos({login: org.login})">Repositories</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12" ng-if="!organisations || organisations.length == 0">
+                No Organisations with Public Membership Found
+            </div>
+        </div>
     </div>
 </div>

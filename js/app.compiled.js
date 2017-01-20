@@ -203,6 +203,28 @@
                     return $http(request);
                 }
 
+                service.getUserOrganisations = function (login) {
+                    // build request
+                    var request = gitBase.build({
+                        url: '/users/' + login + '/orgs',
+                        method: 'GET'
+                    }, $localStorage.access_token);
+
+                    // execute the request
+                    return $http(request);
+                }
+
+                service.getMyOrganisations = function () {
+                    // build request
+                    var request = gitBase.build({
+                        url: '/user/orgs',
+                        method: 'GET'
+                    }, $localStorage.access_token);
+
+                    // execute the request
+                    return $http(request);
+                }
+
                 return service;
             }];
         });
@@ -432,7 +454,21 @@
                             var url = 'Views/User/Organisations/';
                             console.log('loading template : ' + url);
                             return url;
-                        }
+                        },
+                        controller: ['$scope', 'gitService', '$stateParams', function ($scope, gitService, $stateParams) {
+                            console.log('Organisations Controller');
+                            this.getOrgs = function() {
+                                if($stateParams.login === $scope.user.login) {
+                                    return gitService.getMyOrganisations();
+                                } else {
+                                    return gitService.getUserOrganisations($stateParams.login);
+                                }
+                            };
+
+                            this.getOrgs().then(function(response) {
+                                $scope.organisations = response.data;
+                            });
+                        }]
                     }
                 }
             }).state('user.gists', {
@@ -538,7 +574,7 @@
             }
 
             var auth = function () {
-                $window.open('https://github.com/login/oauth/authorize?client_id=492314afd654eaa0a8ed&scope=user%20repo');
+                $window.open('https://github.com/login/oauth/authorize?client_id=492314afd654eaa0a8ed&scope=user%20repo%20read:org');
                 $window.removeEventListener("message", messageListner);
                 $window.addEventListener("message", messageListner, false);
             };

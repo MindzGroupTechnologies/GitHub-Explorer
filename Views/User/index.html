@@ -5,7 +5,7 @@
                 <div class="col-md-12 col-sm-12">
                     <img class="img-thumbnail big img-avatar block-primary pull-left" ng-src="{{::userInfo.avatar_url}}&s=128" alt="{{::userInfo.login}}">
                     <div class="pull-left">
-                        <a class="text-info text-heavy user-info" href="{{::userInfo.html_url}}" target="_blank">{{::userInfo.name}}</a>
+                        <a class="text-info text-heavy user-info" href="{{::userInfo.html_url}}" target="_blank">{{userInfo.name?userInfo.name:userInfo.login}}</a>
                         <br/>
                         {{::userInfo.type}}<span ng-if="::userInfo.location"> ({{::userInfo.location}})</span>
                         <br />

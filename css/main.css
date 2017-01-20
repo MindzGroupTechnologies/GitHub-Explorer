@@ -359,3 +359,25 @@ fieldset[disabled] .navbar-primary .btn-link:hover {
 [ng-click] {
   cursor: pointer;
 }
+.list-row {
+  margin: 5px 0;
+}
+.list-row:first-child {
+  margin-top: 0;
+}
+.list-row:last-child {
+  margin-bottom: 0;
+}
+.list-row .has-btn {
+  line-height: 30px;
+}
+.list-row .has-icon {
+  line-height: 40px;
+}
+.list-row .has-icon .btn {
+  margin: 8px 0;
+}
+.list-row .label {
+  padding: 0.2em 0.5em;
+  vertical-align: middle;
+}

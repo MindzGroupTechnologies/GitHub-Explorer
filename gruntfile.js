@@ -3,6 +3,24 @@ module.exports = function (grunt) {
     // configure tasks
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
+        'string-replace': {
+            build: {
+                options: {
+                    replacements: [{
+                        pattern: /Build: (\d+)\.(\d+)\.(\d+)/g,
+                        replacement: function(match, p1, p2, p3) {
+                            p3++;
+                            return "Build: " + p1 + '.' + p2 + '.' + p3;
+                        }
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    src: ['index.html']
+                }]
+            }
+        },
         less: {
             development: {
                 files: {
@@ -112,7 +130,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-string-replace');
 
     // register tasks
     grunt.registerTask('default', ['copy', 'less', 'cssmin', 'concat', 'uglify', 'watch']);
+    grunt.registerTask('prod', ['string-replace']);
 }
