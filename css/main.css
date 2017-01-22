@@ -343,6 +343,8 @@ fieldset[disabled] .navbar-primary .btn-link:hover {
   width: 40px;
   height: 40px;
   margin: 5px 0;
+  border-radius: 4px;
+  border: 1px solid #eeeeee;
 }
 .img-avatar.big {
   width: 128px;
