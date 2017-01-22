@@ -24,6 +24,7 @@
     "bootstrap": "3.3.7",
     "angular-ui-router": "ui-router#0.3.2",
     "ngstorage": "^0.3.11",
-    "angulartics-google-analytics": "^0.4.0"
+    "angulartics-google-analytics": "^0.4.0",
+    "angular-bootstrap": "^2.4.0"
   }
 }

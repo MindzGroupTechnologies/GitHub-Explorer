@@ -1,17 +1,17 @@
 <div class="row">
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="row block block-warning bottom-cushion">
-            <div class="col-md-12 col-sm-12 block-header">
+            <div class="col-md-12 col-sm-12 col-xs-12 block-header">
                 <h5>Gists</h5>
             </div>
-            <div class="col-md-12 col-sm-12">
+            <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
-                    <div ng-repeat="gist in gists" class="col-md-12 col-sm-12 list-row" ng-init="gistInfo=getGistInfo(gist)">
+                    <div ng-repeat="gist in gists" class="col-md-12 col-sm-12 col-xs-12 list-row" ng-init="gistInfo=getGistInfo(gist)">
                         <div class="row">
-                            <div class="col-md-6 col-sm-12 has-btn">
+                            <div class="col-md-6 col-sm-12 col-xs-12 has-btn">
                                 {{gistInfo.name}} <label class="label label-primary">{{gistInfo.fileCount}}</label>
                             </div>
-                            <div class="col-md-6 col-sm-12">
+                            <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="pull-right">
                                     <a class="btn btn-sm btn-info" ui-sref=".files({id: gist.id, gist: gist})">Information</a>
                                 </div>
@@ -22,5 +22,5 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-sm-12" ui-view="gist.detail"></div>
+    <div class="col-md-6 col-sm-12 col-xs-12" ui-view="gist.detail"></div>
 </div>

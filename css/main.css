@@ -18,6 +18,9 @@ body {
 .navbar-primary .navbar-text {
   color: #fff;
 }
+.navbar-primary .navbar-nav {
+  margin: 0 -15px;
+}
 .navbar-primary .navbar-nav > li > a {
   color: #fff;
 }

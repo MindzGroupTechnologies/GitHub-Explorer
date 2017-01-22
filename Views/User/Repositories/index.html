@@ -1,17 +1,17 @@
 <div class="row">
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="row block block-warning bottom-cushion">
-            <div class="col-md-12 col-sm-12 block-header">
+            <div class="col-md-12 col-sm-12 col-xs-12 block-header">
                 <h5>Repositories</h5>
             </div>
-            <div class="col-md-12 col-sm-12">
+            <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
-                    <div ng-repeat="repo in repositories" class="col-md-12 col-sm-12 list-row">
+                    <div ng-repeat="repo in repositories" class="col-md-12 col-sm-12 col-xs-12 list-row">
                         <div class="row">
-                            <div class="col-md-6 col-sm-12 has-btn">
+                            <div class="col-md-6 col-sm-12 col-xs-12 has-btn">
                                 {{repo.name}}
                             </div>
-                            <div class="col-md-6 col-sm-12">
+                            <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="pull-right">
                                     <a class="btn btn-sm btn-info" ui-sref=".branches({repo: repo.name})">Branches</a>
                                     <a class="btn btn-sm btn-warning" ui-sref=".contributors({repo: repo.name})">Contributors</a>
@@ -23,5 +23,5 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-sm-12" ui-view="repo.detail"></div>
+    <div class="col-md-6 col-sm-12 col-xs-12" ui-view="repo.detail"></div>
 </div>

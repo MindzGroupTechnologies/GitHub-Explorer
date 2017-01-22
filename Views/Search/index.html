@@ -1,8 +1,8 @@
 <div class="module-container">
     <div class="row">
-        <div class="col-md-12 col-sm-12">
+        <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="row block block-light top-cushion bottom-cushion">
-                <div class="col-md-12 col-sm-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <form class="form-inline" role="form">
                         <div class="form-group text-left">
                             <label for="txtLoginName">GitHub Login ID: </label>
@@ -29,15 +29,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12 col-sm-12">
+        <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="row block block-light bottom-cushion">
-                <div class="col-md-12 col-sm-12 block-header">
+                <div class="col-md-12 col-sm-12 col-xs-12 block-header">
                     <h5 class="pull-left">Results</h5>
                     <div class="pull-right block-actions" ng-if="searchResults">
                         <ul uib-pagination ng-change="pageChanged(currentPage)" total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" items-per-page="pageSize" boundary-link-numbers="true" rotate="true"></ul>
                     </div>
                 </div>
-                <div class="col-md-12 col-sm-12" ng-repeat="record in searchResults">
+                <div class="col-md-12 col-sm-12 col-xs-12" ng-repeat="record in searchResults">
                     <img class="img-thumbnail img-avatar block-primary pull-left" ng-src="{{::record.avatar_url}}&s=40" alt="{{::record.login}}">
                     <span class="pull-left">
                         <span class="text-heavy">{{::record.login}}</span><br/>{{::record.type}}
@@ -48,7 +48,7 @@
                     </span>
                     </span>
                 </div>
-                <div class="col-md-12 col-sm-12" ng-if="!searchResults">
+                <div class="col-md-12 col-sm-12 col-xs-12" ng-if="!searchResults">
                     Enter a User Login ID to Search
                 </div>
             </div>
