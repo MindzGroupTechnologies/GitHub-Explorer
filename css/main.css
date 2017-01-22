@@ -15,6 +15,10 @@ body {
   color: #e6e6e6;
   background-color: transparent;
 }
+.navbar-primary .navbar-brand span {
+  font-size: 0.65em;
+  color: rgba(255, 255, 255, 0.5);
+}
 .navbar-primary .navbar-text {
   color: #fff;
 }

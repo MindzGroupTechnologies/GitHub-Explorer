@@ -7,10 +7,10 @@ module.exports = function (grunt) {
             build: {
                 options: {
                     replacements: [{
-                        pattern: /Build: (\d+)\.(\d+)\.(\d+)/g,
+                        pattern: />\((\d+)\.(\d+)\.(\d+)\)</g,
                         replacement: function(match, p1, p2, p3) {
                             p3++;
-                            return "Build: " + p1 + '.' + p2 + '.' + p3;
+                            return ">(" + p1 + '.' + p2 + '.' + p3 + ")<";
                         }
                     }]
                 },
