@@ -53,8 +53,12 @@ body {
 .navbar-primary .navbar-toggle:hover {
   background-color: #ddd;
 }
+.navbar-primary .navbar-toggle:active .icon-bar,
+.navbar-primary .navbar-toggle:focus .icon-bar {
+  background-color: #337ab7;
+}
 .navbar-primary .navbar-toggle .icon-bar {
-  background-color: #888;
+  background-color: #ddd;
 }
 .navbar-primary .navbar-collapse,
 .navbar-primary .navbar-form {

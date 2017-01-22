@@ -13,7 +13,7 @@
 @navbar-primary-brand-hover-color: darken(@navbar-primary-brand-color, 10%);
 @navbar-primary-brand-hover-bg: transparent; // Navbar toggle
 @navbar-primary-toggle-hover-bg: #ddd;
-@navbar-primary-toggle-icon-bar-bg: #888;
+@navbar-primary-toggle-icon-bar-bg: #ddd;
 @navbar-primary-toggle-border-color: #ddd;
 @switch-background-color: lighten(gray, 25%);
 @switch-background-color-checked: @brand-primary;
@@ -88,6 +88,13 @@ body {
         &:focus,
         &:hover {
             background-color: @navbar-primary-toggle-hover-bg;
+        }
+
+        &:active,
+        &:focus {
+            .icon-bar {
+                background-color: @brand-primary;
+            }
         }
 
         .icon-bar {

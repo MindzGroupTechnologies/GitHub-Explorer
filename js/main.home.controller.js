@@ -20,6 +20,7 @@
                     .then(function (response) {
                         $scope.gitUserName = response.data.name;
                         $scope.user = response.data;
+                        $state.go('user', {login : response.data.login});
                     });
             }
 
