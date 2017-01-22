@@ -72,7 +72,8 @@ module.exports = function (grunt) {
                     'js/main.module.js',
                     'js/main.home.controller.js',
                     'js/main.search.controller.js',
-                    'js/main.user.controller.js'
+                    'js/main.user.controller.js',
+                    'js/main.user.repositories.controller.js'
                 ],
                 dest: 'js/app.compiled.js',
             },

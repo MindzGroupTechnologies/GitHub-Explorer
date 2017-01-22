@@ -50,9 +50,6 @@
             }).state('user.repos', {
                 url: '/Repositories',
                 resolve: {
-                    repositories: ['gitService', '$stateParams', function (gitService, $stateParams) {
-                        return gitService.getUserRepositories($stateParams.login);
-                    }],
                     pageTitle: ['page', function (page) {
                         page.setPageTitle('User Repositories');
                         return page.getTitle();
@@ -65,10 +62,7 @@
                             console.log('loading template : ' + url);
                             return url;
                         },
-                        controller: ['$scope', 'repositories', function ($scope, repositories) {
-                            console.log('Repositories Controller');
-                            $scope.repositories = repositories.data;
-                        }]
+                        controller: 'RepositoriesController'
                     }
                 }
             }).state('user.repos.branches', {
