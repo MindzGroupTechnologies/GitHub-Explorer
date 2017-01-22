@@ -1,1 +1,44 @@
-page not found.
+<html>
+
+<head>
+    <title>Page Not Found</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,500,700|Fira+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese">
+    <link rel="stylesheet" href="css/app.compiled.min.css" />
+    <base href="/GitHub-Explorer/" />
+    <style media="screen">
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fira Sans';
+        }
+    </style>
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-2269721-13', 'auto');
+        ga('send', {
+            hitType: 'pageview',
+            page: '/404' + location.pathname
+        });
+    </script>
+</head>
+
+<body>
+    <div class="text-center">
+        <span>Page Not Found</span><br />
+        <a class="btn btn-primary" href="/GitHub-Explorer/">Go Home</a>
+    </div>
+</body>
+
+</html>
