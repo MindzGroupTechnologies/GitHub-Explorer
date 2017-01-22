@@ -47,6 +47,11 @@ body {
 
     .navbar-nav {
         margin: 0 -15px;
+        @media (max-width: @screen-tablet) {
+            &.bottom-nav {
+                margin: 4.5px -15px;
+            }
+        }
 
         > li > a {
             color: @navbar-primary-link-color;
@@ -104,6 +109,9 @@ body {
                 background-color: @navbar-primary-link-active-bg;
                 color: @navbar-primary-link-active-color;
             }
+        }
+        @media (min-width: @grid-float-breakpoint) {
+            margin: 0;
         }
         @media (max-width: @grid-float-breakpoint-max) {
             // Dropdowns get custom display when collapsed
@@ -179,7 +187,9 @@ body {
 }
 
 .form-inline {
-    margin-bottom: auto;
+    .form-group {
+        margin-bottom: 15px;
+    }
 
     label {
         font-weight: 400;

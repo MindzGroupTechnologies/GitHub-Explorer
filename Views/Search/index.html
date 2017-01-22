@@ -1,29 +1,35 @@
 <div class="module-container">
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="row block block-light top-cushion bottom-cushion">
+            <div class="row block block-light top-cushion">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <form class="form-inline" role="form">
-                        <div class="form-group text-left">
-                            <label for="txtLoginName">GitHub Login ID: </label>
-                            <div class="input-group">
-                                <input id="txtLoginName" autocomplete="off" class="form-control" type="text" ng-model="searchValue">
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-primary" ng-click="search(currentPage)"><span class="glyphicon glyphicon-search"></span>&nbsp;</button>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="txtLoginName">GitHub Login ID: </label>
+                                    <div class="input-group">
+                                        <input id="txtLoginName" autocomplete="off" class="form-control" type="text" ng-model="searchValue">
+                                        <div class="input-group-btn">
+                                            <button type="submit" class="btn btn-primary" ng-click="search(currentPage)"><span class="glyphicon glyphicon-search"></span>&nbsp;</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div><br/><br/>
-                        <div class="form-group text-left">
-                            <label for="cbTypeUser" class="radioCtrl rounded">
-                                <input id="cbTypeUser" name="cbType" type="radio" value="user" ng-model="typeValue" />
-                                <span class="toggle"></span>
-                            </label>
-                            <label for="cbTypeUser" class="title">User</label>
-                            <label for="cbTypeOrg" class="radioCtrl rounded">
-                                <input id="cbTypeOrg" name="cbType" type="radio" value="org" ng-model="typeValue" />
-                                <span class="toggle"></span>
-                            </label>
-                            <label for="cbTypeOrg" class="title">Organization</label>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="cbTypeUser" class="radioCtrl rounded">
+                                        <input id="cbTypeUser" name="cbType" type="radio" value="user" ng-model="typeValue" />
+                                        <span class="toggle"></span>
+                                    </label>
+                                    <label for="cbTypeUser" class="title">User</label>
+                                    <label for="cbTypeOrg" class="radioCtrl rounded">
+                                        <input id="cbTypeOrg" name="cbType" type="radio" value="org" ng-model="typeValue" />
+                                        <span class="toggle"></span>
+                                    </label>
+                                    <label for="cbTypeOrg" class="title">Organization</label>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

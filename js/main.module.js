@@ -138,15 +138,15 @@
                         },
                         controller: ['$scope', 'gitService', '$stateParams', function ($scope, gitService, $stateParams) {
                             console.log('Organisations Controller');
-                            this.getOrgs = function() {
-                                if($stateParams.login === $scope.user.login) {
+                            this.getOrgs = function () {
+                                if ($stateParams.login === $scope.user.login) {
                                     return gitService.getMyOrganisations();
                                 } else {
                                     return gitService.getUserOrganisations($stateParams.login);
                                 }
                             };
 
-                            this.getOrgs().then(function(response) {
+                            this.getOrgs().then(function (response) {
                                 $scope.organisations = response.data;
                             });
                         }]
@@ -217,5 +217,11 @@
         }])
         .run(['$state', function ($state) {
             $state.go('search');
+
+            var navMain = $("#main-nav");
+            navMain.on("click", "a", null, function () {
+                navMain.collapse('hide');
+            });
+
         }]);
 }());
